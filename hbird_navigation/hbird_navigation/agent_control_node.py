@@ -430,9 +430,9 @@ class AgentControlNode(Node):
                 delta_y = 0.0
                 # find distance from bin
                 delta_z = self._curr_waypoint.position.z - self._state.position.z
-                # self.get_logger().info('Current Z is {}'.format(self._state.position.z))
-                # self.get_logger().info('Waypoint Z is {}'.format(self._curr_waypoint.position.z))
-                # self.get_logger().info('Bin_delta_z is {}'.format(delta_z))
+                self.get_logger().info('Current Z is {}'.format(self._state.position.z))
+                self.get_logger().info('Waypoint Z is {}'.format(self._curr_waypoint.position.z))
+                self.get_logger().info('Bin_delta_z is {}'.format(delta_z))
 
                 # if reached bin, stop moving in z-direction
                 if abs(delta_z) <= 0.28:
@@ -484,12 +484,12 @@ class AgentControlNode(Node):
                 delta_y = 0.0
                 # find distance from bin
                 delta_z = self._lift_height - self._state.position.z
-                # self.get_logger().info('Current Z is {}'.format(self._state.position.z))
-                # self.get_logger().info('Waypoint Z is {}'.format(self._curr_waypoint.position.z))
-                # self.get_logger().info('Bin_delta_z is {}'.format(delta_z))
+                self.get_logger().info('Current Z is {}'.format(self._state.position.z))
+                self.get_logger().info('Highway Z is {}'.format(self._lift_height))
+                self.get_logger().info('delta_z is {}'.format(delta_z))
 
                 # if reached bin, stop moving in z-direction
-                if abs(delta_z) <= 0.45:
+                if abs(delta_z) <= 0.52:
                     self.get_logger().info('Pick Operation: Reached highway!')
                     self._behavior = "path following"
                     delta_z = 0.0
